@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Arsya Kost</title>
+  <link rel="stylesheet" href="style_login.css" />
+  <link rel="icon" href="logo.jpg.jpeg" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="logo.jpg.jpeg" alt="Logo Arsya Kost" class="logo" />
+      <h1>Arsya Kost</h1>
+      <p>Tempat Kos Ternyaman dan Terpercaya</p>
+    </div>
+    <div class="right-panel">
+      <div class="form-box">
+        <h2>Masuk ke Dashboard</h2>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+        <p class="error" id="error-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Arsya Kost. Semua hak dilindungi.</p>
+  </footer>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMsg = document.getElementById("error-message");
+
+      if (username === "11713291723" && password === "13291723") {
+        localStorage.setItem("isLoggedIn", "true");
+        alert("Berhasil Login!");
+        window.location.href = "index.html";
+      } else {
+        errorMsg.textContent = "Username atau password salah.";
+      }
+    }
+  </script>
+</body>
+</html>

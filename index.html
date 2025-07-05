@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- Favicon -->
+<link rel="icon" type="image/png" href="logo.jpg.jpeg">
+
+<!-- Open Graph (OG) for social and Google preview -->
+<meta property="og:title" content="Arsya Kost" />
+<meta property="og:description" content="Informasi kamar, iuran, dan data penghuni Arsya Kost." />
+<meta property="og:image" content="https://Raihannurabrar.github.io/Arsya-Kost/logo.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://Raihannurabrar.github.io/Arsya-Kost/" />
+
+<!-- Twitter card (optional) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://Raihannurabrar.github.io/Arsya-Kost/logo.png">
+
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arsya Kost</title>
+  <title>Arsya Kost</title>
+  <meta name="description" content="Website pengelolaan data kamar kost, iuran bulanan, dan token listrik untuk Arsya Kost.">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+  <!-- Header -->
+  <header>
+    <h1>Arsya Kost</h1>
+    <p>Tempat Kos Ternyaman</p>
+    <div style="text-align: right; padding: 10px 20px;">
+  <button onclick="logout()" style="
+    padding: 10px 16px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  ">
+    Logout
+  </button>
+</div>
+ </header>
+
+  <!-- Navigasi -->
+  <nav>
+    <ul>
+      <li><a href="#beranda">Beranda</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+      <li><a href="#alamat">Alamat</a></li>
+    </ul>
+    <div id="waktu-sekarang" style="font-size: 20px; font-weight: bold; margin-top: 10px;"></div>
+  </nav>
+
+  <!-- Beranda -->
+  <section id="beranda">
+    <h2>Selamat Datang di Arsya Kos</h2>
+    <p>Website ini menyajikan informasi lengkap tentang penghuni, iuran bulanan dan tahunan untuk 7 kamar kos.</p>
+  </section>
+
+  <!-- Tentang -->
+  <section id="tentang">
+    <h2>Tentang</h2>
+    <p>Rumah kos kami menyediakan 7 kamar dengan fasilitas lengkap antara lain
+      Free Wifi,
+      Free Water,
+      Kasur, Lemari,
+      dan parkiran 
+
+    </p>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak">
+    <h2>Kontak</h2>
+    <p>Email: rumahkos@example.com<br>Telepon : 0821-6620-4897</p>
+  </section>
+
+  <!-- Alamat -->
+  <section id="alamat">
+    <h2>Alamat</h2>
+    <p>Lr.Kb, Kelurahan Baet, Kec.Baitussalam, Kab.Aceh Besar</p>
+  </section>
+
+  <!-- Data Kamar -->
+  <section id="data-kamar">
+    <h2>Data 7 Kamar</h2>
+
+    <!-- Navigasi Kamar -->
+    <div class="navigasi-kamar">
+      <h3>Pilih Kamar</h3>
+      <div class="tombol-kamar">
+        <a href="#kamar1"><button>Kamar 1</button></a>
+        <a href="#kamar2"><button>Kamar 2</button></a>
+        <a href="#kamar3"><button>Kamar 3</button></a>
+        <a href="#kamar4"><button>Kamar 4</button></a>
+        <a href="#kamar5"><button>Kamar 5</button></a>
+        <a href="#kamar6"><button>Kamar 6</button></a>
+        <a href="#kamar7"><button>Kamar 7</button></a>
+      </div>
+    </div>
+
+    <div id="kamar-container"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Arsya Kos. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "login.html";
+  }
+</script>
+<script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+<script>
+  function logout() {
+    const konfirmasi = confirm("Apakah Anda ingin logout?");
+    if (konfirmasi) {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "login.html";
+    }
+  }
+</script>
+<div style="text-align: right; padding: 10px 20px;">
+  <button onclick="logout()" style="
+    padding: 10px 16px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  ">
+    Logout
+  </button>
+</div>
+<script>
+  function tampilkanWaktuLengkap() {
+    const hariList = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const bulanList = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                       'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+    const sekarang = new Date();
+    const hari = hariList[sekarang.getDay()];
+    const tanggal = String(sekarang.getDate()).padStart(2, '0');
+    const bulan = bulanList[sekarang.getMonth()];
+    const tahun = sekarang.getFullYear();
+    const jam = String(sekarang.getHours()).padStart(2, '0');
+    const menit = String(sekarang.getMinutes()).padStart(2, '0');
+    const detik = String(sekarang.getSeconds()).padStart(2, '0');
+
+    const waktuLengkap = `${hari}, ${tanggal} ${bulan} ${tahun} | ${jam}:${menit}:${detik}`;
+    document.getElementById('waktu-sekarang').textContent = waktuLengkap;
+  }
+
+  setInterval(tampilkanWaktuLengkap, 1000);
+  tampilkanWaktuLengkap();
+</script>
+<script>
+  function logout() {
+    const konfirmasi = confirm("Apakah Anda ingin logout?");
+    if (konfirmasi) {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "login.html";
+    }
+  }
+</script>
+
+
+
+</body>
+</html>
